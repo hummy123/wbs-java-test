@@ -227,20 +227,14 @@ public class Students {
     	Integer middle = list.size() / 2;
     	List<Student> left = list.subList(0, middle);
     	List<Student> right = list.subList(middle, list.size());
-    	System.out.println("at partition");
-    	System.out.println(left);
-    	System.out.println(right);
-    	System.out.println("end partition");
     	
     	// recursion, split until we have either two or one
     	left = mergeSort(left, field);
     	right = mergeSort(right, field);
 
-    	// copy using temporary arrays and join to final array
+    	// copy left and right arrays into final result in order.
     	// stacks are also a good choice for this part because of their fifo/popping functionality
     	Integer i = 0, j = 0;
-    	List<Student> tempLeft = new ArrayList<Student>();
-    	List<Student> tempRight = new ArrayList<Student>();
     	    	
     	List<Student> result = new ArrayList<Student>();
     	
@@ -258,20 +252,13 @@ public class Students {
     	
     	// if arrays were not exhausted, need to add to result
     	if (i <= left.size()) {
-    		System.out.println("last left if");
-    		System.out.println(left.subList(i, left.size()));
     		result.addAll(left.subList(i, left.size()));
     	}
     	
     	if (j <= right.size()) {
-    		System.out.println("last right if");
-    		System.out.println(right);
     		result.addAll(right.subList(j, right.size()));
     	}
     	
-    	System.out.println("result");
-		System.out.println(result);
-
     	return result;
     }
     
