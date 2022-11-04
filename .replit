@@ -1,0 +1,4 @@
+run = "mvn -f root/pom.xml test 2> /dev/null"
+
+[nix]
+channel = "stable-21_11"
